@@ -1,0 +1,7 @@
+# Assistant and Recommendation System
+
+The assistant in `lib/assistant.js` uses Gemini only when `GEMINI_API_KEY` is configured in the server process environment. `GEMINI_MODEL` optionally selects the model; the default is `gemini-3.5-flash-lite`. Google currently documents Gemini 2.5 Flash as deprecated, with API requests scheduled to route to Gemini 3.5 Flash-Lite on December 1, 2026, so the app no longer defaults to 2.5 Flash. Requests contain the user question, available location/model context, and a reduced household preference summary without names. Credentials stay in the server request header and are not returned to the browser. Missing credentials, invalid/unauthorized credentials, quota errors, timeouts, provider errors, and unusable model responses use local fallback answers with safe reason labels. Emergency phrases bypass the provider and return an emergency-services direction.
+
+Prompt rules prohibit invented readings, diagnosis, prescriptions, and unsupported health claims. Current values come only from supplied app context. The local answer engine reports unavailable data explicitly.
+
+Recommendations use available modeled AQI, forecast windows, particle values, and selected profile fields. They are general information, not individualized medical guidance or personal exposure predictions. Sources are linked in the dashboard. Exposure action records are never converted to a health score or exposure-reduction estimate.
