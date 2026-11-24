@@ -10,8 +10,8 @@ import { emissionsEstimate, exposureAction } from './lib/impact.js';
 import { normalizeProfile } from './lib/profile.js';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const PORT = Number(process.env.PORT || 3000);
-const HOST = process.env.HOST || '127.0.0.1';
+const PORT = Number(process.env.PORT) || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
 const dbPath = resolve(ROOT, process.env.DB_PATH || './data/breathewise.sqlite');
 await mkdir(dirname(dbPath), { recursive: true });
 const db = new DatabaseSync(dbPath);
