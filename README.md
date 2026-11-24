@@ -42,7 +42,7 @@ Node.js HTTP server
 2. Open a terminal in the project directory.
 3. Start the server:
 
-   ```sh
+   ```bash
    npm start
    ```
 
@@ -84,13 +84,13 @@ The dashboard distinguishes provider status and shows source/model timestamps wh
 
 Run the automated integration and service tests:
 
-```sh
+```bash
 npm test
 ```
 
 Check JavaScript syntax:
 
-```sh
+```bash
 node --check server.js
 node --check public/app.js
 node --check lib/assistant.js
